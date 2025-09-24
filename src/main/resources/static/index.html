@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>AJAX CRUD – Category & Product</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+  <h1>Spring Boot REST API with AJAX</h1>
+
+  <section class="card">
+    <h2>Category</h2>
+    <form id="cat-form">
+      <input type="hidden" id="catId" />
+      <div class="row">
+        <label>Tên:</label>
+        <input type="text" id="catName" required />
+      </div>
+      <div class="row">
+        <label>Icon:</label>
+        <input type="file" id="catIcon" accept="image/*" />
+      </div>
+      <div class="row">
+        <button type="button" id="btnCatCreate">Thêm mới</button>
+        <button type="button" id="btnCatUpdate">Cập nhật</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <input type="text" id="catSearch" placeholder="Tìm category..." />
+      <button id="btnCatReload">Reload</button>
+    </div>
+    <table id="catTable">
+      <thead><tr><th>ID</th><th>Tên</th><th>Icon</th><th>Hành động</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Product</h2>
+    <form id="prod-form">
+      <input type="hidden" id="prodId" />
+      <div class="grid">
+        <div>
+          <label>Tên</label><input type="text" id="prodName" required/>
+          <label>Số lượng</label><input type="number" id="prodQty" value="0" min="0"/>
+          <label>Giá</label><input type="number" id="prodPrice" value="0" min="0" step="0.01"/>
+          <label>Giảm giá</label><input type="number" id="prodDiscount" value="0" min="0" step="0.01"/>
+          <label>Trạng thái</label>
+          <select id="prodStatus"><option value="1">Active</option><option value="0">Inactive</option></select>
+        </div>
+        <div>
+          <label>Category</label>
+          <select id="prodCategory"></select>
+          <label>Mô tả</label><textarea id="prodDesc" rows="3" required></textarea>
+          <label>Ảnh</label><input type="file" id="prodImage" accept="image/*"/>
+        </div>
+      </div>
+      <div class="row">
+        <button type="button" id="btnProdCreate">Thêm mới</button>
+        <button type="button" id="btnProdUpdate">Cập nhật</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <input type="text" id="prodSearch" placeholder="Tìm product..." />
+      <button id="btnProdReload">Reload</button>
+    </div>
+    <table id="prodTable">
+      <thead><tr><th>ID</th><th>Tên</th><th>Giá</th><th>SL</th><th>Cat</th><th>Ảnh</th><th>Actions</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <footer>
+    <a href="/swagger-ui/index.html" target="_blank">Mở Swagger UI</a>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
